@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="es">
+
+<head>
+    <!--MATERIALIZE ICONS-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--GOOGLE FONTS-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <!--BOOTSTRAP-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <link rel="stylesheet" th:href="@{/css/index/normal.css}" />
+
+    <title>Guante Comercial</title>
+    <meta charset="utf-8" />
+    <meta name="keywords" content="Electrodomesticos">
+    <meta name="description" content="Tienda de Electrodomesticos Nuevos y Usados">
+    <meta name="author" content="Miguel Angel Guante">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <header>
+        <img class="imgLogo" src="/Multimedia/Logo.png" alt="img_portada_GuanteComercial.JPG">
+    </header>
+
+    <!-- <nav>
+        <ul>
+            <li>Blog</li>
+            <li>Contactenos</li>
+        </ul>
+    </nav> -->
+
+    <div class="card mt-2" th:if="${ProductosUsados.size() > 0}">
+        <style scoped>
+            @media only screen and (min-width: 1200px) {
+                .prb {
+                    width: 26%;
+                }
+            }
+
+            @media only screen and (min-width: 992px) and (max-width: 1199px) {
+                .prb {
+                    width: 30%;
+                }
+            }
+
+            @media only screen and (min-width: 601px) and (max-width: 991px) {
+                .prb {
+                    width: 50%;
+                }
+            }
+
+            @media only screen and (max-width: 600px) {
+                .prb {
+                    widows: 100%;
+                }
+            }
+        </style>
+        <!-- HEADER DE LOS ARTICULOS USADOS -->
+        <div class="card-header">
+            <p>ELECTRODOMESTICOS USADOS</p>
+        </div>
+        <!-- CARDS QUE CONTIENE LOS ARTICULOS -->
+        <div class="usadosContainer">
+            <div class="card cardUsado prb" th:each="productsUsed: ${ProductosUsados}">
+                <div>
+                    <p th:text="${productsUsed.codigo}" class="CodigoProducto"></p>
+                    <img th:src="@{'/Uploads/' + ${productsUsed.imagen}}" class="card-img-top"
+                        th:alt="${productsUsed.descripcion}">
+                    <p th:text="${productsUsed.precio} + '$'" style="font-size: xx-large; margin: 0;"></p>
+                </div>
+                <div class="card-body">
+                    <p th:text="${productsUsed.descripcion}"></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <main>
+        <div class="mt-2">
+            <div class="container card primary">
+                <div class="card-header">
+                    <p>ELECTRODOMESTICOS NUEVOS</p>
+                </div>
+                <form th:action="@{/form}" th:object="${product}" method="POST" id="formulario">
+                    <div class="formularioBuscarArticulo">
+                        <!--SELECT QUE CONTIENE LA CATEGORIA DE LOS PRODUCTOS-->
+                        <div>
+                            <select class="select" th:field="*{categoria}">
+                                <option th:each="list: ${lista}" th:value="${list.id}" th:text="${list.nombre}">
+                                </option>
+                            </select>
+                        </div>
+
+                        <!--INPUT QUE CONTIENE EL ENTRY PARA INGRESAR EL NOMBRE DEL PRODUCTO-->
+                        <div class="inputText">
+                            <input type="text" placeholder="Buscar Producto" th:field="*{descripcion}">
+                        </div>
+
+                        <div class="Boton">
+                            <input class="buttonSubmit" value="Buscar" type="submit"></input>
+                        </div>
+                    </div>
+                </form>
+
+                <!--CARDS QUE MUESTRA LOS PRODUCTOS NUEVOS-->
+                <div class="CardsNormales" id="CardsNormales">
+                    <div th:each="product: ${Producto}">
+                        <div class="CardNormal">
+                            <p th:text="${product.codigo}" class="CodigoProducto"></p>
+                            <div class="imageContainer">
+                                <img th:src="@{'/Uploads/' + ${product.imagen}}" th:alt="${product.descripcion}" />
+                                <p th:text="${product.precio} + '$'"></p>
+                                <button
+                                    onclick="return alert('LLAMENOS Y PREGUNTE POR NUESTROS PRODUCTOS AL (809) 799-2805')">
+                                    <i class='large material-icons'>call</i>
+                                </button>
+                            </div>
+                            <div class='Descripcion'>
+                                <p th:text="${product.descripcion}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAGINATOR -->
+                <div th:replace="Layouts/Paginator :: paginator"></div>
+            </div>
+        </div>
+    </main>
+
+    <div class="py-2"></div>
+
+    <footer>
+        <div class="Contactenos">
+            <h2>CONTACTENOS</h2>
+            <p>Telefono: (809) 799-2805</p>
+            <p>Siguenos en Facebook para que te enteres de nuestras ofertas: <a
+                    href="https://web.facebook.com/Guante-Comercial-404712190304913/">@GuanteComercial</a></p>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d473.0077960941606!2d-70.10774085665882!3d18.48083391310994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDI4JzUxLjIiTiA3MMKwMDYnMjYuOSJX!5e0!3m2!1ses!2sdo!4v1553653435086"
+                height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+
+        <div class="Blog">
+            <h2>BLOG</h2>
+            <!--JS-->
+            <div id="EntradasBlog"></div>
+        </div>
+
+        <div class="developedBy">
+
+        </div>
+    </footer>
+</body>
+
+</html>

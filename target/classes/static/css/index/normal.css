@@ -1,0 +1,411 @@
+/*RESET ALL COMPONENTS TO 0M AND SET ALL COMPONENT TO BORDER-BOX TO HAVE MORE CONTROL OVER THE WHIDTH COMPONENTS*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+
+/*SET THE HEIGHT OF BODY AND DOCUMENT TO SET THE HEIGHT OF HEADER IMAGE TO 90%*/
+body, html {
+    font-family: 'Roboto Condensed', sans-serif;
+    height: 100%;
+    background-color: #00a0e5;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+/********************  DISABLE ELEMENTS  ********************/
+.imgLogo{
+    display: none;
+}
+
+.normalArticles{
+    display: none;
+}
+
+.formularioBuscarArticulo .select{
+    display: none;
+}
+
+.formularioBuscarArticulo .inputText{
+    display: none;
+}
+
+.formularioBuscarArticulo .Boton{
+    display: none;
+}
+
+/********************  NAVBAR  ********************/
+nav{
+    background-color: #0f6f98;
+    overflow: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+nav ul{
+    float: right;
+}
+
+nav ul li{
+    cursor: pointer;
+    border-left: #e91737 solid 2px;
+    color: white;
+    float: right;
+    padding: 14px;
+    text-decoration: none;
+    list-style: none;
+    margin: 10px;
+    transition: all .5s;
+    transition-timing-function: ease-out;
+}
+
+/*    HOVERS   */
+nav ul li:hover {
+    transform: scale(1.2, 1.2); 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/********************  USADOS  ********************/
+.usadosContainer{
+    text-align: center;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.card-header p{
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.cardUsado{
+    display: inline-block;
+}
+
+/********************  ELEMENTOS SILARES EN LOS CARDS NUEVOS Y USADOS  ********************/
+.CodigoProducto {
+    background-color: #00a0e5;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 1%;
+    font-weight: bold;
+    font-size: large;
+}
+
+/*   BUSCADOR    */
+.normalArticles .formularioBuscarArticulo{
+    background-color: #f1f1f1;
+    width: 100%;
+    overflow: hidden;
+}
+
+.formularioBuscarArticulo select, .formularioBuscarArticulo input{
+    background: transparent;
+    border: none;
+    border-bottom: #e91737 solid 1px;
+    color: #e91737;
+    width: 100%;
+    padding: 16px 0px 6px 0px;
+    font-weight: bold;
+}
+
+.formularioBuscarArticulo .inputText{
+    float: left;
+    padding: 20px 0px 6px 10px;
+}
+
+.formularioBuscarArticulo .select{
+    float: left;
+    padding: 39px 0px 6px 10px;
+}
+
+.formularioBuscarArticulo .Boton{
+    padding: 20px 1px 0px 1px;
+    cursor: pointer;
+    background-color: #b7b7b7;
+    border: none;
+    display: inline-block;
+}
+
+/*  TARGETAS CON LOS ARTICULOS NORMALES  */
+
+.CardNormal .imageContainer{
+    position: relative;
+}
+
+.CardNormal{
+    float: left;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: all .2s;
+}
+
+.CardNormal:hover{
+    box-shadow: 2px 8px 16px 2px rgba(0, 0, 0, 0.2), 4px 12px 40px 4px rgba(0, 0, 0, 0.19);
+    transform: scale(1.006)
+}
+
+.imageContainer img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width:1024px;
+    max-height:1024px;
+    width: 100%;
+}
+
+.imageContainer p{
+    padding: .8%;
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    color: #e91737;
+    font-weight: bold;
+    font-size: xx-large;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.imageContainer button{
+    position: absolute;
+    padding: 10px;
+    right: 4%;
+    bottom: -15px;
+    border: none;
+    background-color: #e91737;
+    border-radius: 50%;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: all .5s;
+}
+
+/*  TARGETAS CON LOS ARTICULOS NORMALES  */
+.CardNormal{
+    background-color: #063e57;
+}
+    
+.CardNormal .Descripcion{
+    padding: 6px;
+    color: #ffffff;
+}
+
+.normalArticles a:hover:not(.active){
+    background-color: #e91737;
+}
+
+/*  PAGINATOR   */
+.paginator{
+    display: flex;
+    justify-content: center;
+}
+
+/*   FOOTER    */
+footer{
+    background-color: #0f6f98;
+    overflow: hidden;
+}
+
+/*      ESTILOS GENERALES DE LOS ELEMENTOS DE FOOTER        */
+footer .Contactenos, footer .Blog{
+    color: white;
+    float: left;
+    width: 98%;
+    text-align: center;
+    border: 2px solid #b7b7b7;
+    background-color: rgba(183, 183, 183, .5);
+    padding: 10px 0;
+    border-radius: 5px;
+    margin: 10px 0 10px 1%; 
+}
+
+/*      CONTACTENOS     */
+.Contactenos iframe{
+    width: 98%;
+}
+
+/*      BLOG        */
+.targetaEntradaBlog{
+    background-color: white;
+    color: #0f6f98;
+    text-align: justify;
+    padding: 10px 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    float: left;
+}
+
+.TituloEntrada{
+    font-weight: bold;
+    font-size: large;
+}
+
+.resumenEntrada{
+    border-top: 1px solid #b7b7b7; 
+    margin-top: 10px;
+}
+
+/*      DEVELOPEDBY     */
+.developedBy{
+    float: left;
+    width: 100%;
+    height: 60px;
+    background-color: #063e57;
+}
+
+/********************  MQ  ********************/
+@media only screen and (max-width: 600px) {
+    .imgLogo{
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: auto;
+    }
+
+    .normalArticles{
+        display: block;
+        width: 100%;
+    }
+
+    .formularioBuscarArticulo .select{
+        display: block;
+        width: 98%;
+    }
+    
+    .formularioBuscarArticulo .inputText{
+        display: inline-block;
+        width: 84%;
+    }
+    
+    .formularioBuscarArticulo .Boton{
+        display: inline-block;
+        width: 14%;
+    }   
+
+    .CardNormal{
+        margin: 10px 0px 10px 9px;
+        width: 96%;
+    }
+
+    .targetaEntradaBlog{
+        margin: 0 4px 6px 6px;
+        width: 98%;
+    }
+}  
+
+@media only screen and (min-width: 601px) and (max-width: 991px) {
+    .imgLogo{
+        width: 90%;
+        height: auto;
+        display: block;
+        margin: auto;
+    }
+
+    .normalArticles{
+        display: block;
+        width: 100%;
+    }
+
+    .formularioBuscarArticulo .select{
+        display: block;
+        width: 99.9%;
+    }
+    
+    .formularioBuscarArticulo .inputText{
+        display: inline-block;
+        width: 90%;
+    }
+    
+    .formularioBuscarArticulo .Boton{
+        display: inline-block;
+        width: 10%;
+    }   
+
+    .CardNormal{
+        margin: 0px 4px 10px 8px;
+        width: 98%;
+    }
+
+    .targetaEntradaBlog{
+        margin: 0 4px 6px 6px;
+        width: 98%;
+    }
+}
+ 
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .imgLogo{
+        width: 70%;
+        height: auto;
+        display: block;
+        margin: auto;
+    }
+    .normalArticles{
+        display: block;
+        width: 55%;
+    }
+
+    .formularioBuscarArticulo .select{
+        display: block;
+        width: 30%;
+    }
+    
+    .formularioBuscarArticulo .inputText{
+        display: inline-block;
+        width: 60%;
+    }
+    
+    .formularioBuscarArticulo .Boton{
+        display: inline-block;
+        width: 10%;
+    }
+
+   .CardNormal{
+        margin: 0px 4px 10px 8px;
+        width: 32%;
+    } 
+
+    .targetaEntradaBlog{
+        margin: 0 5px 0 6px;
+        width: 48%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .imgLogo{
+        width: 50%;
+        height: auto;
+        display: block;
+        margin: auto;
+    }
+
+    .normalArticles{
+        display: block;
+    }
+
+    .formularioBuscarArticulo .select{
+        display: block;
+        width: 16%;
+    }
+    
+    .formularioBuscarArticulo .inputText{
+        display: inline-block;
+        width: 78%;
+    }
+    
+    .formularioBuscarArticulo .Boton{
+        display: inline-block;
+        width: 6%;
+    }
+
+    .CardNormal{
+        margin: 10px 2px 10px 5px;
+        width: 32.7%;
+    }
+
+    .targetaEntradaBlog{
+        margin: 0 5px 0 6px;
+        width: 49%;
+    }
+}
